@@ -20,12 +20,12 @@ $theme-palette: (
     )
   ),
   color:(
-    'primary': #003865,
+    'primary': #cfdbdb,
     'secondary': #005192,
     'hover': #FF9E1B,
   ),
   background: (
-    'primary': #F4F5F7,
+    'primary': #50545f,
   ),
   grays:(
     50: #F1F1F1,
@@ -52,4 +52,3 @@ $theme-palette: (
   @return map.get($theme-palette, $palette)
 }
 
-@import "material";

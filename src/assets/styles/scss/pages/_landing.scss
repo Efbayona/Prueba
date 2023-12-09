@@ -1,0 +1,98 @@
+.wrapper-landing {
+  width: 100vw;
+  height: 100vh;
+  padding: 40px;
+  background: theme-palette-color('background', 'primary');
+  font-family: "Roboto Condensed";
+
+  .content-landing {
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+
+    .content-landing-header {
+      width: 100%;
+      height: 10%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px 0 32px;
+
+      img {
+        width: 200px;
+        height: 100%;
+      }
+
+      .section-menu {
+        width: 580px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+
+        .screen {
+          width: 180px;
+          padding: 10px;
+          border: 1px solid white;
+          border-radius: 16px;
+          font-size: 16px;
+          color: theme-palette-color('color', 'primary');
+          font-weight: 500;
+          cursor: pointer;
+
+          &:hover {
+            background: theme-palette-color('color', 'primary');
+            color: theme-palette-color('background', 'primary');
+          }
+        }
+      }
+    }
+
+
+    .content-landing-body {
+      width: 100%;
+      height: 90%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      .content-text {
+        width: 70%;
+        height: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 40px;
+        flex-direction: column;
+
+        span {
+          font-weight: 500;
+          color: white;
+
+          &:first-child {
+            font-size: 64px;
+            font-weight: 600;
+            line-height: 1;
+          }
+
+          &:last-child {
+            font-size: 24px;
+            font-weight: 600;
+          }
+        }
+      }
+
+      .content-image {
+        width: 30%;
+        height: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        padding-right: 80px;
+      }
+    }
+  }
+}

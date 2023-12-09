@@ -1,5 +1,13 @@
 @charset "UTF-8";
 
 @import "vendors/normalize";
-
 @import "themes/theme";
+@import "components/loading";
+@import "abstracts/variables";
+
+/** Pages**/
+@import "pages/main";
+@import "pages/landing";
+@import "pages/characters";
+@import "pages/places";
+@import "pages/episodes";
