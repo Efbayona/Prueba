@@ -2,7 +2,7 @@
 
 @import "vendors/normalize";
 @import "themes/theme";
-@import "components/loading";
+
 @import "abstracts/variables";
 
 /** Pages**/
@@ -11,3 +11,8 @@
 @import "pages/characters";
 @import "pages/places";
 @import "pages/episodes";
+@import "pages/characters-detail";
+
+/** Components**/
+@import "components/loading";
+@import "components/card";

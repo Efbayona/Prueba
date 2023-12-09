@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { PlacesRoutingModule } from './places-routing.module';
 import { PlacesComponent } from './pages/places/places.component';
+import { PlacesDetailComponent } from './pages/places-detail/places-detail.component';
 
 
 @NgModule({
   declarations: [
-    PlacesComponent
+    PlacesComponent,
+    PlacesDetailComponent
   ],
   imports: [
     CommonModule,

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CharactersService} from "@app/modules/characters/services/characters.service";
+import {Router} from "@angular/router";
+import {Characters, DataObjet} from "@app/modules/characters/interfaces/characters.interfaces";
 
 @Component({
   selector: 'app-characters',
@@ -8,17 +10,37 @@ import {CharactersService} from "@app/modules/characters/services/characters.ser
 })
 export class CharactersComponent implements OnInit {
 
-  constructor(private _characters: CharactersService) { }
+  dataCharacters: Characters[] = [];
+
+  constructor(private _characters: CharactersService,
+              private router: Router) { }
 
   ngOnInit(): void {
-    this.metodo();
+    this.getDataCharacters();
   }
 
-  metodo(){
+  getDataCharacters(){
     this._characters.getCharacters().subscribe( {
-      next: (data): void => {
-        console.log(data)
+      next: (data: DataObjet): void => {
+        this.dataCharacters = data.results;
+        console.log(this.dataCharacters)
       }
     })
+  }
+
+  characterDetail(id: number): void {
+    this.router.navigateByUrl(`/characters/${id}`).then();
+  }
+
+  navigateToCharacters(){
+    this.router.navigateByUrl('/characters').then();
+  }
+
+  navigateToPlaces(){
+    this.router.navigateByUrl('/places').then();
+  }
+
+  navigateToEpisodes(){
+    this.router.navigateByUrl('/episodes').then();
   }
 }

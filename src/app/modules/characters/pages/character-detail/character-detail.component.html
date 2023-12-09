@@ -1,0 +1,20 @@
+<div class="wrapper-characters-detail">
+  <div class="content-characters-detail">
+    <div class="content-characters-detail-header">
+      <span (click)="navigateToCharacters()"><em class="icon-arrow-circle-left"></em></span>
+      <img src="../../../../assets/images/logo.png" routerLink="/">
+    </div>
+    <div class="content-characters-detail-body">
+      <div class="content-characters-detail-image">
+        <img src="{{dataCharactersDetail?.image}}" alt="detail-img">
+      </div>
+      <div class="content-characters-detail-text">
+        <span class="title">{{ dataCharactersDetail?.name }}</span>
+        <span>{{ dataCharactersDetail?.gender }}</span>
+        <span>{{ dataCharactersDetail?.species }}</span>
+        <span>{{ dataCharactersDetail?.status }}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
