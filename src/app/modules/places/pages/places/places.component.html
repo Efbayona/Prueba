@@ -1,4 +1,29 @@
 <div class="wrapper-places">
   <div class="content-places">
+    <div class="content-places-header">
+      <img src="../../../../assets/images/logo.png" routerLink="/">
+      <div class="section-menu">
+        <a class="screen" (click)="navigateToCharacters()">Personajes</a>
+        <a class="screen" (click)="navigateToPlaces()">Lugares</a>
+        <a class="screen" (click)="navigateToEpisodes()">Episodios</a>
+      </div>
+    </div>
+    <div class="content-places-body">
+      <div class="content-places">
+        <div class="content-text-places">
+          <span>Lugares de Rick and Morty</span>
+          <span>
+            En los rincones más excéntricos del multiverso, Rick y Morty nos llevan a lugares tan estrafalarios como variopintos.
+            Desde el caótico garaje-laboratorio donde Rick destila ingenio interdimensional hasta planetas alienígenas con paisajes surreales, la serie se despliega en un collage de mundos extraordinarios.
+          </span>
+        </div>
+      </div>
+      <div class="places">
+        <div class="place" *ngFor="let places of dataPlaces"
+             (click)="placesDetail(places.id)">
+          <span>{{places.name}}</span>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

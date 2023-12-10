@@ -1,4 +1,4 @@
-.wrapper-episodes{
+.wrapper-episodes {
   width: 100vw;
   height: 100vh;
   padding: 20px;
@@ -8,5 +8,129 @@
   .content-episodes {
     width: 100%;
     height: 100%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);}
+    padding: 20px;
+
+    .content-episodes-header {
+      width: 100%;
+      height: 10%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px 0 32px;
+
+      img {
+        width: 200px;
+        height: 100%;
+      }
+
+      .section-menu {
+        width: 580px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+
+        .screen {
+          width: 180px;
+          padding: 10px;
+          border: 1px solid white;
+          border-radius: 16px;
+          font-size: 16px;
+          color: theme-palette-color('color', 'primary');
+          font-weight: 500;
+          cursor: pointer;
+
+          &:hover {
+            background: theme-palette-color('color', 'primary');
+            color: theme-palette-color('background', 'primary');
+          }
+        }
+      }
+    }
+
+    .content-episodes-body {
+      width: 100%;
+      height: 90%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: column;
+
+      .content-episode {
+        width: 80%;
+        height: 140px;
+        border: 1px solid theme-palette-color('background', 'primary');
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          width: 180px;
+          height: 128px;
+          object-fit: cover;
+        }
+
+        .content-text-episode {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          gap: 20px;
+
+
+          span {
+            font-size: 16px;
+            color: theme-palette-color('color', 'primary');
+
+            &:first-child {
+              font-size: 32px;
+            }
+          }
+        }
+      }
+
+      .episodes {
+        width: 80%;
+        height: 80%;
+        overflow: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 10px;
+
+        .episode {
+          width: 160px;
+          height: 120px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: 1px solid theme-palette-color('background', 'primary');
+          text-align: center;
+          flex-direction: column;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+          border-radius: 6px;
+
+          &:hover {
+            background: theme-palette-color('color', 'primary');
+            color: theme-palette-color('background', 'primary');
+
+            span{
+              color: theme-palette-color('background', 'primary');
+            }
+          }
+
+          span {
+            color: theme-palette-color('color', 'primary');
+            padding-top: 10px;
+          }
+
+
+        }
+      }
+    }
+  }
 }

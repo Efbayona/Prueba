@@ -23,7 +23,6 @@ export class CharactersComponent implements OnInit {
     this._characters.getCharacters().subscribe( {
       next: (data: DataObjet): void => {
         this.dataCharacters = data.results;
-        console.log(this.dataCharacters)
       }
     })
   }

@@ -25,7 +25,6 @@ export class CharacterDetailComponent implements OnInit {
           const characterIndex = +this.characters_id;
           if (!isNaN(characterIndex) && characterIndex >= 0 && characterIndex < data.results.length) {
             this.dataCharactersDetail = data.results[characterIndex - 1];
-            console.log(this.dataCharactersDetail)
           } else {
             console.error('ID de personaje no válido.');
           }

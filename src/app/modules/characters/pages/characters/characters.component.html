@@ -1,14 +1,14 @@
 <div class="wrapper-characters">
   <div class="content-characters">
     <div class="content-characters-header">
-      <img src="../../../../assets/images/logo.png">
+      <img src="../../../../assets/images/logo.png" routerLink="/">
       <div class="section-menu">
         <a class="screen" (click)="navigateToCharacters()">Personajes</a>
         <a class="screen" (click)="navigateToPlaces()">Lugares</a>
         <a class="screen" (click)="navigateToEpisodes()">Episodios</a>
       </div>
     </div>
-    <div class="content-characters-body" >
+    <div class="content-characters-body">
       <app-card *ngFor="let character of dataCharacters"
                 [CardData]="character"
                 (click)="characterDetail(character.id)">

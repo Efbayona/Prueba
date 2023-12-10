@@ -8,7 +8,7 @@ import { CardComponent } from './layouts/card/card.component';
   declarations: [
     LandingPageComponent,
     LoadingComponent,
-    CardComponent
+    CardComponent,
   ],
   imports: [
     CommonModule
