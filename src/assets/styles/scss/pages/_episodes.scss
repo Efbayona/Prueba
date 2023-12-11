@@ -131,6 +131,43 @@
 
         }
       }
+
+      .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 5%;
+
+        span{
+          padding: 0 20px;
+          font-size: 18px;
+          color: white;
+          font-weight: 600;
+        }
+
+        button {
+          border-radius: 4px;
+          font-size: 14px;
+          background-color: #50b7b4;
+          color: white;
+          border: none;
+          display: flex;
+          padding: 10px;
+          justify-content: center;
+          min-width: 80px;
+          align-items: center;
+          cursor: pointer;
+          text-decoration: none;
+          cursor: pointer;
+
+          &:hover {
+            background-color: white;
+            color: #50b7b4;
+          }
+        }
+      }
+
     }
   }
 }

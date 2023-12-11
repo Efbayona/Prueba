@@ -12,4 +12,8 @@ export class EpisodesService {
   public getEpisodes(): Observable<any> {
     return this._http.get<any>('episode');
   }
+
+  getEpisodePage(page: number): Observable<any> {
+    return this._http.get(`/episode?page=${page}`);
+  }
 }

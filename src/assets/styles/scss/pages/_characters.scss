@@ -8,6 +8,7 @@
   background-position: center;
   font-family: "Roboto Condensed";
   object-fit: contain;
+
   .content-characters {
     width: 100%;
     height: 100%;
@@ -60,19 +61,56 @@
 
     .content-characters-body {
       width: 100%;
-      height: 90%;
+      height: 80%;
       display: flex;
+      padding: 10px;
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
       gap: 10px;
-      padding-bottom: 30px;
       overflow: auto;
     }
 
     .content-characters-body::-webkit-scrollbar {
       display: none;
     }
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 5%;
+
+      span{
+        padding: 0 20px;
+        font-size: 18px;
+        color: white;
+        font-weight: 600;
+      }
+
+      button {
+        border-radius: 4px;
+        font-size: 14px;
+        background-color: #50b7b4;
+        color: white;
+        border: none;
+        display: flex;
+        padding: 10px;
+        justify-content: center;
+        min-width: 80px;
+        align-items: center;
+        cursor: pointer;
+        text-decoration: none;
+        cursor: pointer;
+
+        &:hover {
+          background-color: white;
+          color: #50b7b4;
+        }
+      }
+    }
+
 
   }
 }

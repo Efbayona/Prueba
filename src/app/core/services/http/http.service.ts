@@ -7,7 +7,7 @@ import {HttpClient} from "@angular/common/http";
 })
 export class HttpService {
 
-  private apiUrl = 'https://rickandmortyapi.com/api'; // Reemplaza con la URL de tu API
+  private apiUrl = 'https://rickandmortyapi.com/api';
 
   constructor(private http: HttpClient) {
   }

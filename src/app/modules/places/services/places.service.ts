@@ -16,4 +16,9 @@ export class PlacesService {
   public getPlacesId(ids: any): Observable<any> {
     return this._http.get<any>('location' + '/' + ids );
   }
+
+  getLocationsPage(page: number): Observable<any> {
+    return this._http.get(`/location?page=${page}`);
+  }
+
 }

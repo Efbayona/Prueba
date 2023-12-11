@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {PlacesService} from "@app/modules/places/services/places.service";
 
@@ -10,34 +10,64 @@ import {PlacesService} from "@app/modules/places/services/places.service";
 export class PlacesComponent implements OnInit {
 
   dataPlaces: any[] = [];
-  constructor( private router: Router,
-               private _places: PlacesService) { }
+  currentPage: number = 1;
+
+  constructor(private router: Router,
+              private _places: PlacesService) {
+  }
 
   ngOnInit(): void {
     this.getDataPlaces();
+    this.loadPlaces();
   }
 
-  getDataPlaces(){
-    this._places.getPlaces().subscribe( {
+  getDataPlaces() {
+    this._places.getPlaces().subscribe({
       next: (data): void => {
         this.dataPlaces = data.results;
       }
     })
   }
 
+
+  loadPlaces(): void {
+    this._places.getLocationsPage(this.currentPage).subscribe({
+      next: (data): void => {
+        this.dataPlaces = data.results;
+      }, error(error) {
+        console.log('No hay mas datos');
+      }
+    });
+  }
+
+  onPageChange(page: number): void {
+    this.currentPage = page;
+    this.loadPlaces();
+  }
+
+  prevPage(): void {
+    if (this.currentPage > 1) {
+      this.onPageChange(this.currentPage - 1);
+    }
+  }
+
+  nextPage(): void {
+    this.onPageChange(this.currentPage + 1);
+  }
+
   placesDetail(id: number): void {
     this.router.navigateByUrl(`/places/${id}`).then();
   }
 
-  navigateToCharacters(){
+  navigateToCharacters() {
     this.router.navigateByUrl('/characters').then();
   }
 
-  navigateToPlaces(){
+  navigateToPlaces() {
     this.router.navigateByUrl('/places').then();
   }
 
-  navigateToEpisodes(){
+  navigateToEpisodes() {
     this.router.navigateByUrl('/episodes').then();
   }
 }

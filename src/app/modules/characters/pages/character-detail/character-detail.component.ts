@@ -25,7 +25,6 @@ export class CharacterDetailComponent implements OnInit {
   getCharacters() {
     this._characters.getCharacters().subscribe({
       next: (data) => {
-        console.log(data)
         if (data.results && this.characters_id !== null) {
           const characterIndex = +this.characters_id;
           if (!isNaN(characterIndex) && characterIndex >= 0 && characterIndex < data.results.length) {

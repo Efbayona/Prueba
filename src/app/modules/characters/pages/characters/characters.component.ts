@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {CharactersService} from "@app/modules/characters/services/characters.service";
 import {Router} from "@angular/router";
 import {Characters, DataObjet} from "@app/modules/characters/interfaces/characters.interfaces";
@@ -11,35 +11,62 @@ import {Characters, DataObjet} from "@app/modules/characters/interfaces/characte
 export class CharactersComponent implements OnInit {
 
   dataCharacters: Characters[] = [];
+  currentPage: number = 1;
 
   constructor(private _characters: CharactersService,
-              private router: Router) { }
+              private router: Router) {
+  }
 
   ngOnInit(): void {
     this.getDataCharacters();
+    this.loadCharacters();
   }
 
-  getDataCharacters(){
-    this._characters.getCharacters().subscribe( {
+  getDataCharacters() {
+    this._characters.getCharacters().subscribe({
       next: (data: DataObjet): void => {
         this.dataCharacters = data.results;
       }
     })
   }
 
+  loadCharacters(): void {
+    this._characters.getCharactersPage(this.currentPage).subscribe({
+      next: (data): void => {
+        this.dataCharacters = data.results;
+      }
+    });
+  }
+
+  onPageChange(page: number): void {
+    this.currentPage = page;
+    this.loadCharacters();
+  }
+
+  prevPage(): void {
+    if (this.currentPage > 1) {
+      this.onPageChange(this.currentPage - 1);
+    }
+  }
+
+  nextPage(): void {
+    this.onPageChange(this.currentPage + 1);
+  }
+
+
   characterDetail(id: number): void {
     this.router.navigateByUrl(`/characters/${id}`).then();
   }
 
-  navigateToCharacters(){
+  navigateToCharacters() {
     this.router.navigateByUrl('/characters').then();
   }
 
-  navigateToPlaces(){
+  navigateToPlaces() {
     this.router.navigateByUrl('/places').then();
   }
 
-  navigateToEpisodes(){
+  navigateToEpisodes() {
     this.router.navigateByUrl('/episodes').then();
   }
 }

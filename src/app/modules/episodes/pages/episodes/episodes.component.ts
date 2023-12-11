@@ -11,6 +11,7 @@ import {EpisodesService} from "@app/modules/episodes/services/episodes.service";
 export class EpisodesComponent implements OnInit {
 
   dataEpisodes: any[] = [];
+  currentPage: number = 1;
 
   constructor(private router: Router,
               private _episodes: EpisodesService) {
@@ -18,6 +19,7 @@ export class EpisodesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getDataEpisodes();
+    this.loadEpisodes();
   }
 
   getDataEpisodes() {
@@ -26,6 +28,31 @@ export class EpisodesComponent implements OnInit {
         this.dataEpisodes = data.results;
       }
     })
+  }
+
+  loadEpisodes(): void {
+    this._episodes.getEpisodePage(this.currentPage).subscribe({
+      next: (data): void => {
+        this.dataEpisodes = data.results;
+      } ,error(error){
+        console.log('No hay mas datos');
+      }
+    });
+  }
+
+  onPageChange(page: number): void {
+    this.currentPage = page;
+    this.loadEpisodes();
+  }
+
+  prevPage(): void {
+    if (this.currentPage > 1) {
+      this.onPageChange(this.currentPage - 1);
+    }
+  }
+
+  nextPage(): void {
+    this.onPageChange(this.currentPage + 1);
   }
 
   episodesDetail(id: number): void {
