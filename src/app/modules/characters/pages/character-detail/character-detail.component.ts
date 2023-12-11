@@ -14,13 +14,18 @@ export class CharacterDetailComponent implements OnInit {
 
   constructor(private router: Router,
               private route: ActivatedRoute,
-              private _characters: CharactersService,) {
+              private _characters: CharactersService) {
   }
 
   ngOnInit(): void {
     this.characters_id = this.route.snapshot.paramMap.get('id');
+    this.getCharacters();
+  }
+
+  getCharacters() {
     this._characters.getCharacters().subscribe({
       next: (data) => {
+        console.log(data)
         if (data.results && this.characters_id !== null) {
           const characterIndex = +this.characters_id;
           if (!isNaN(characterIndex) && characterIndex >= 0 && characterIndex < data.results.length) {
@@ -34,7 +39,6 @@ export class CharacterDetailComponent implements OnInit {
       }
     });
   }
-
 
   navigateToCharacters() {
     this.router.navigateByUrl('/characters').then();

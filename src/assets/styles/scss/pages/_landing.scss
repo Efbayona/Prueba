@@ -1,9 +1,13 @@
 .wrapper-landing {
+  margin: 0;
   width: 100vw;
   height: 100vh;
   padding: 20px;
-  background: theme-palette-color('background', 'primary');
+  background-image: url('https://i.pinimg.com/originals/93/01/25/9301258942733e3725f2757c18d1c441.jpg');
+  background-size: cover;
+  background-position: center;
   font-family: "Roboto Condensed";
+  object-fit: contain;
 
   .content-landing {
     width: 100%;
@@ -40,12 +44,12 @@
           border: 1px solid white;
           border-radius: 16px;
           font-size: 16px;
-          color: theme-palette-color('color', 'primary');
+          color: white;
           font-weight: 500;
           cursor: pointer;
 
           &:hover {
-            background: theme-palette-color('color', 'primary');
+            background: white;
             color: theme-palette-color('background', 'primary');
           }
         }

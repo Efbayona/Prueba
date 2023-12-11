@@ -12,4 +12,8 @@ export class PlacesService {
   public getPlaces(): Observable<any> {
     return this._http.get<any>('location');
   }
+
+  public getPlacesId(ids: any): Observable<any> {
+    return this._http.get<any>('location' + '/' + ids );
+  }
 }

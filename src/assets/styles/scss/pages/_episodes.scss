@@ -1,9 +1,13 @@
 .wrapper-episodes {
+  margin: 0;
   width: 100vw;
   height: 100vh;
   padding: 20px;
-  background: theme-palette-color('background', 'primary');
+  background-image: url('https://i.pinimg.com/originals/93/01/25/9301258942733e3725f2757c18d1c441.jpg');
+  background-size: cover;
+  background-position: center;
   font-family: "Roboto Condensed";
+  object-fit: contain;
 
   .content-episodes {
     width: 100%;
@@ -38,12 +42,12 @@
           border: 1px solid white;
           border-radius: 16px;
           font-size: 16px;
-          color: theme-palette-color('color', 'primary');
+          color: white;
           font-weight: 500;
           cursor: pointer;
 
           &:hover {
-            background: theme-palette-color('color', 'primary');
+            background: white;
             color: theme-palette-color('background', 'primary');
           }
         }
@@ -61,16 +65,9 @@
       .content-episode {
         width: 80%;
         height: 140px;
-        border: 1px solid theme-palette-color('background', 'primary');
         display: flex;
         justify-content: center;
         align-items: center;
-
-        img {
-          width: 180px;
-          height: 128px;
-          object-fit: cover;
-        }
 
         .content-text-episode {
           display: flex;
@@ -81,8 +78,8 @@
 
 
           span {
-            font-size: 16px;
-            color: theme-palette-color('color', 'primary');
+            font-size: 20px;
+            color: white;
 
             &:first-child {
               font-size: 32px;
@@ -108,26 +105,29 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          border: 1px solid theme-palette-color('background', 'primary');
+          background: theme-palette-color('grays', 500);
+          color: white;
+          border: 1px solid theme-palette-color('grays', 400);
           text-align: center;
           flex-direction: column;
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
           border-radius: 6px;
+          cursor: pointer;
 
           &:hover {
-            background: theme-palette-color('color', 'primary');
+            background: white;
             color: theme-palette-color('background', 'primary');
+            transform: scale(1.05);
 
-            span{
+            span {
               color: theme-palette-color('background', 'primary');
             }
           }
 
           span {
-            color: theme-palette-color('color', 'primary');
+            color: white;
             padding-top: 10px;
           }
-
 
         }
       }

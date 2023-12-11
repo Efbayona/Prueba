@@ -1,1 +1,16 @@
-<p>places-detail works!</p>
+<div class="wrapper-places-detail">
+  <div class="content-places-detail">
+    <div class="content-places-detail-header">
+      <span (click)="navigateToPlaces()"><em class="icon-arrow-circle-left"></em></span>
+      <img src="../../../../assets/images/logo.png" routerLink="/">
+    </div>
+    <div class="content-places-detail-body">
+      <span>{{dataPlacesDetail?.name}}</span>
+      <span>{{dataPlacesDetail?.dimension}}</span>
+      <span>{{dataPlacesDetail?.type}}</span>
+      <div class="content-residents" *ngFor="let residents of dataCharactersDetail">
+        <img [src]="residents.image" alt="{{ residents.name }}">
+      </div>
+    </div>
+  </div>
+</div>

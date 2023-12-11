@@ -1,1 +1,30 @@
-<p>episodes-detail works!</p>
+<div class="wrapper-episodes-detail">
+  <div class="content-episodes-detail">
+    <div class="content-episodes-detail-header">
+      <span (click)="navigateToEpisodes()"><em class="icon-arrow-circle-left"></em></span>
+      <img src="../../../../assets/images/logo.png" routerLink="/">
+    </div>
+    <div class="content-episodes-detail-body">
+      <div class="content-episodes-title">
+        <span class="title">{{dataEpisodesDetail?.name}}</span>
+        <span class="stars">
+        <em class="icon-star-f"></em>
+                <em class="icon-star-f"></em>
+                <em class="icon-star-f"></em>
+                <em class="icon-star-f"></em>
+                <em class="icon-star-f"></em>
+                <em class="icon-star-f"></em>
+          <span class="qualification">9.5</span>
+      </span>
+        <span class="text">{{dataEpisodesDetail?.episode}}</span>
+        <span class="text">{{dataEpisodesDetail?.air_date}}</span>
+      </div>
+      <div class="content-characters-episode">
+        <span>Personajes que aparecen en el episodio</span>
+        <div class="characters" *ngFor="let character of dataCharactersDetail">
+          <img [src]="character.image" alt="{{ character.name }}">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -13,4 +13,8 @@ export class CharactersService {
   public getCharacters(): Observable<any> {
     return this._http.get<any>('character');
   }
+
+  public getCharactersId(ids: any): Observable<any> {
+    return this._http.get<any>('character' + '/' + ids );
+  }
 }
