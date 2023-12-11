@@ -15,10 +15,11 @@ export class CharactersService {
   }
 
   public getCharactersId(ids: any): Observable<any> {
-    return this._http.get<any>('character' + '/' + ids );
+    return this._http.get<any>('character' + '/' + ids);
   }
 
-  getCharactersPage(page: number): Observable<any> {
-    return this._http.get(`/character?page=${page}`);
+  getCharactersPage(page: number, search?: string): Observable<any> {
+    return this._http.get(`/character?page=${page}` + (search ? `&name=${search}` : ''));
   }
+
 }

@@ -11,6 +11,7 @@ export class PlacesComponent implements OnInit {
 
   dataPlaces: any[] = [];
   currentPage: number = 1;
+  searchTerm = '';
 
   constructor(private router: Router,
               private _places: PlacesService) {
@@ -31,13 +32,18 @@ export class PlacesComponent implements OnInit {
 
 
   loadPlaces(): void {
-    this._places.getLocationsPage(this.currentPage).subscribe({
+    this._places.getLocationsPage(this.currentPage, this.searchTerm).subscribe({
       next: (data): void => {
         this.dataPlaces = data.results;
       }, error(error) {
         console.log('No hay mas datos');
       }
     });
+  }
+
+  onSearchChange(event: Event): void {
+    this.searchTerm = (event.target as HTMLInputElement).value;
+    this.loadPlaces();
   }
 
   onPageChange(page: number): void {

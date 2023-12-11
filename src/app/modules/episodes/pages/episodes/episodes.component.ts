@@ -12,6 +12,7 @@ export class EpisodesComponent implements OnInit {
 
   dataEpisodes: any[] = [];
   currentPage: number = 1;
+  searchTerm = '';
 
   constructor(private router: Router,
               private _episodes: EpisodesService) {
@@ -31,13 +32,18 @@ export class EpisodesComponent implements OnInit {
   }
 
   loadEpisodes(): void {
-    this._episodes.getEpisodePage(this.currentPage).subscribe({
+    this._episodes.getEpisodePage(this.currentPage, this.searchTerm).subscribe({
       next: (data): void => {
         this.dataEpisodes = data.results;
       } ,error(error){
         console.log('No hay mas datos');
       }
     });
+  }
+
+  onSearchChange(event: Event): void {
+    this.searchTerm = (event.target as HTMLInputElement).value;
+    this.loadEpisodes();
   }
 
   onPageChange(page: number): void {

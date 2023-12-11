@@ -4,6 +4,7 @@ import { EpisodesRoutingModule } from './episodes-routing.module';
 import { EpisodesComponent } from './pages/episodes/episodes.component';
 import { EpisodesDetailComponent } from './pages/episodes-detail/episodes-detail.component';
 import {SharedModule} from "@app/shared/shared.module";
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -11,10 +12,11 @@ import {SharedModule} from "@app/shared/shared.module";
     EpisodesComponent,
     EpisodesDetailComponent
   ],
-  imports: [
-    CommonModule,
-    EpisodesRoutingModule,
-    SharedModule
-  ]
+    imports: [
+        CommonModule,
+        EpisodesRoutingModule,
+        SharedModule,
+        FormsModule
+    ]
 })
 export class EpisodesModule { }

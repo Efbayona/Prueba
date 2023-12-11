@@ -17,8 +17,8 @@ export class PlacesService {
     return this._http.get<any>('location' + '/' + ids );
   }
 
-  getLocationsPage(page: number): Observable<any> {
-    return this._http.get(`/location?page=${page}`);
+  getLocationsPage(page: number , search?: string): Observable<any> {
+    return this._http.get(`/location?page=${page}`+ (search ? `&name=${search}` : ''));
   }
 
 }

@@ -11,7 +11,7 @@ import { CardComponent } from './layouts/card/card.component';
     CardComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
   ],
   exports: [
     LoadingComponent,

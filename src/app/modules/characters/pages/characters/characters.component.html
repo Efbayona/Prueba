@@ -2,6 +2,12 @@
   <div class="content-characters">
     <div class="content-characters-header">
       <img src="../../../../assets/images/logo.png" routerLink="/">
+      <div class="search-bar">
+        <input type="text" [(ngModel)]="searchTerm" (input)="onSearchChange($event)" placeholder="Buscar personajes">
+        <button (click)="onSearchChange($event)" type="submit">
+          <em class="icon-search"></em>
+        </button>
+      </div>
       <div class="section-menu">
         <a class="screen" (click)="navigateToCharacters()">Personajes</a>
         <a class="screen" (click)="navigateToPlaces()">Lugares</a>

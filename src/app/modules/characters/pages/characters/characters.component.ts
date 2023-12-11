@@ -12,6 +12,7 @@ export class CharactersComponent implements OnInit {
 
   dataCharacters: Characters[] = [];
   currentPage: number = 1;
+  searchTerm = '';
 
   constructor(private _characters: CharactersService,
               private router: Router) {
@@ -31,12 +32,14 @@ export class CharactersComponent implements OnInit {
   }
 
   loadCharacters(): void {
-    this._characters.getCharactersPage(this.currentPage).subscribe({
+    this._characters.getCharactersPage(this.currentPage , this.searchTerm).subscribe({
       next: (data): void => {
         this.dataCharacters = data.results;
       }
     });
   }
+
+
 
   onPageChange(page: number): void {
     this.currentPage = page;
@@ -52,7 +55,10 @@ export class CharactersComponent implements OnInit {
   nextPage(): void {
     this.onPageChange(this.currentPage + 1);
   }
-
+  onSearchChange(event: Event): void {
+    this.searchTerm = (event.target as HTMLInputElement).value;
+    this.loadCharacters();
+  }
 
   characterDetail(id: number): void {
     this.router.navigateByUrl(`/characters/${id}`).then();

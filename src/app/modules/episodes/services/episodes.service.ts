@@ -13,7 +13,7 @@ export class EpisodesService {
     return this._http.get<any>('episode');
   }
 
-  getEpisodePage(page: number): Observable<any> {
-    return this._http.get(`/episode?page=${page}`);
+  getEpisodePage(page: number , search?: string): Observable<any> {
+    return this._http.get(`/episode?page=${page}` + (search ? `&name=${search}` : ''));
   }
 }
